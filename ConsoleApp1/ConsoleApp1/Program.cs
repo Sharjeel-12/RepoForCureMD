@@ -54,7 +54,10 @@ public class Number
     public static int SumOfNumbers(int N)
     {
         int sum=0;
-        for (int i=0; i<=N;)
+        for (int i=1; i<=N; i++)
+        {
+            sum += i;
+        }
         return sum;
     }
 }
@@ -74,5 +77,8 @@ public class MainClass
         // use the function |MaxOfThree| from the class Number
         float max_num = Number.MaxOfThree(45, 32, 102);
         Console.WriteLine($"The max number is: {max_num}");
-    }
+        // Sum of N numbers use |SumOfNumbers()| function from the Number class
+        int sumof_N=Number.SumOfNumbers(10);
+        Console.WriteLine($"Sum of N numbers is: {sumof_N}");
+            }
 }
