@@ -1,0 +1,14 @@
+F:\ML job folder\ConsoleApp2\ConsoleApp2\bin\Debug\net8.0\ConsoleApp2.exe
+F:\ML job folder\ConsoleApp2\ConsoleApp2\bin\Debug\net8.0\ConsoleApp2.deps.json
+F:\ML job folder\ConsoleApp2\ConsoleApp2\bin\Debug\net8.0\ConsoleApp2.runtimeconfig.json
+F:\ML job folder\ConsoleApp2\ConsoleApp2\bin\Debug\net8.0\ConsoleApp2.dll
+F:\ML job folder\ConsoleApp2\ConsoleApp2\bin\Debug\net8.0\ConsoleApp2.pdb
+F:\ML job folder\ConsoleApp2\ConsoleApp2\obj\Debug\net8.0\ConsoleApp2.GeneratedMSBuildEditorConfig.editorconfig
+F:\ML job folder\ConsoleApp2\ConsoleApp2\obj\Debug\net8.0\ConsoleApp2.AssemblyInfoInputs.cache
+F:\ML job folder\ConsoleApp2\ConsoleApp2\obj\Debug\net8.0\ConsoleApp2.AssemblyInfo.cs
+F:\ML job folder\ConsoleApp2\ConsoleApp2\obj\Debug\net8.0\ConsoleApp2.csproj.CoreCompileInputs.cache
+F:\ML job folder\ConsoleApp2\ConsoleApp2\obj\Debug\net8.0\ConsoleApp2.dll
+F:\ML job folder\ConsoleApp2\ConsoleApp2\obj\Debug\net8.0\refint\ConsoleApp2.dll
+F:\ML job folder\ConsoleApp2\ConsoleApp2\obj\Debug\net8.0\ConsoleApp2.pdb
+F:\ML job folder\ConsoleApp2\ConsoleApp2\obj\Debug\net8.0\ConsoleApp2.genruntimeconfig.cache
+F:\ML job folder\ConsoleApp2\ConsoleApp2\obj\Debug\net8.0\ref\ConsoleApp2.dll
