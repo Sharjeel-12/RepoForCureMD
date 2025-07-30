@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\wel\\RepoForCureMD\\Project-01\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6E02E2F1-FAC9-437E-8E2B-ADA80443B3B1}|Project-01\\Project-01.csproj|c:\\users\\wel\\repoforcuremd\\project-01\\project-01\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E02E2F1-FAC9-437E-8E2B-ADA80443B3B1}|Project-01\\Project-01.csproj|solutionrelative:project-01\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\wel\\RepoForCureMD\\Project-01\\Project-01\\Program.cs",
+              "RelativeDocumentMoniker": "Project-01\\Program.cs",
+              "ToolTip": "C:\\Users\\wel\\RepoForCureMD\\Project-01\\Project-01\\Program.cs",
+              "RelativeToolTip": "Project-01\\Program.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAgwA0BAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T15:38:11.396Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

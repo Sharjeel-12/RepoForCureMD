@@ -21,7 +21,7 @@ public class AppInterface
 
         Console.WriteLine("1: Add New Patient Record");
         Console.WriteLine("2: View all previous Patient Records");
-        Console.WriteLine("3: Update a Patient Records");
+        Console.WriteLine("3: Update any Patient Records");
         Console.WriteLine("4: Delete any Patient record");
         Console.WriteLine("5: Search any Patient Record");
     }
@@ -32,7 +32,12 @@ public class AppInterface
             case "1":
                 RecordAdder();
                 break;
-
+            case "2":
+                ViewAllRecords();
+                break;
+            case "4":
+                DeleteRecord();
+                break;
             default:
                 Console.WriteLine("You pressed invalid key command");
                 break;
@@ -58,6 +63,27 @@ public class AppInterface
         int[] int_date = Array.ConvertAll(date, Convert.ToInt32);
         Patient patient = new Patient(name, id, visit_type, new DateOnly(int_date[0], int_date[1], int_date[2]));
         Patient.AddPatientRecord(patient);
+        PatientDataHandler.WriteRecord(Patient.records);
+        Console.WriteLine("Visit Added");
+        DisplayMenu();
+        getCommand(Console.ReadLine());
+    }
+
+    public static void ViewAllRecords()
+    {
+        PatientDataHandler.DisplayFileContent();
+        DisplayMenu();
+        getCommand(Console.ReadLine());
+    }
+
+    public static void DeleteRecord()
+    {
+        Console.WriteLine("Enter the Patient ID to delete his/her visit record: -");
+        int id = Convert.ToInt32(Console.ReadLine());
+        Patient.DeletePatientRecord(id);
+        Console.WriteLine("Patient Record Deleted Successfully");
+        DisplayMenu();
+        getCommand(Console.ReadLine());
     }
 
 
@@ -66,16 +92,36 @@ public class AppInterface
 
 public class PatientDataHandler
 {
-    public static string filepath = @"C:\Users\6609\Patient Files\PatientRecords.csv";
-
+    public static string filepath = @"D:\PatientRecords.csv";
+    
     public static void WriteRecord(List<string> array)
     {
-        for (int i = 0; i < array.Count; i++)
-        {
-            File.WriteAllText(filepath, array[i] + "\n");
-        }
+       
+        File.WriteAllLines(filepath, array);
+        
 
     }
+    public static void DisplayFileContent()
+    {
+        string[] ReadLines= File.ReadAllLines(filepath);
+        if (ReadLines.Length != 0)
+        {
+            foreach (string line in ReadLines)
+            {
+                string[] values = line.Split(",");
+                Console.WriteLine(values[0] + "\t\t" + values[1] + "\t\t" + values[2] + "\t\t" + values[3] + "\t\t");
+            }
+        }
+        else
+        {
+            File.WriteAllText(filepath, "Name,ID,VisitType, VisitDate");
+            Console.Write("the file is empty. No record p☻resent");
+        }
+        
+        
+        
+    }
+
 }
 
 
@@ -85,12 +131,14 @@ public class PatientDataHandler
 //The class for the patient
 public class Patient
 {
+    public static string filepath = @"D:\PatientRecords.csv";
     public string Name { get; set; }
     public int ID { get; set; }
     public string VisitType { get; set; }
     public DateOnly VisitDate { get; set; }
-
-    public static List<string> records = new List<string>();
+    public static string[] patient_records = File.ReadAllLines(filepath);
+    public static List<string> records = new List<string>(patient_records);
+    
     public static List<Patient> AllPatients = new List<Patient>() { };
 
     // Parameterized Constructor 
@@ -206,6 +254,14 @@ public class PatientVisitManager
 {
     public static void Main()
     {
+        string filePath = @"D:\PatientRecords.csv";
+
+        // Check if the file exists
+        if (!File.Exists(filePath))
+        {
+            // Create the file and optionally write headers
+            File.WriteAllText(filePath, "Name,Age,VisitType,VisitDate\n");
+        }
         /*Patient patient1= new Patient("Harry", 1,"xyz",new DateOnly(2025,4,2));
         Patient patient2= new Patient("Jerry", 3,"xyz",new DateOnly(2025,4,2));
         Patient patient3= new Patient("Tom", 13, "xyz", new DateOnly(2025, 4, 2));
@@ -222,6 +278,7 @@ public class PatientVisitManager
 
         AppInterface.Welcome();
         AppInterface.DisplayMenu();
+        AppInterface.getCommand(Console.ReadLine());   
 
     }
 }

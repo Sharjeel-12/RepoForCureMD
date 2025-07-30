@@ -1,0 +1,29 @@
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\bin\Debug\net7.0\patient-mgmt-system.exe
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\bin\Debug\net7.0\patient-mgmt-system.deps.json
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\bin\Debug\net7.0\patient-mgmt-system.runtimeconfig.json
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\bin\Debug\net7.0\patient-mgmt-system.dll
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\bin\Debug\net7.0\patient-mgmt-system.pdb
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.GeneratedMSBuildEditorConfig.editorconfig
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.AssemblyInfoInputs.cache
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.AssemblyInfo.cs
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.csproj.CoreCompileInputs.cache
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.dll
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\refint\patient-mgmt-system.dll
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.pdb
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.genruntimeconfig.cache
+F:\ML job folder\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\ref\patient-mgmt-system.dll
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\bin\Debug\net7.0\patient-mgmt-system.exe
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\bin\Debug\net7.0\patient-mgmt-system.deps.json
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\bin\Debug\net7.0\patient-mgmt-system.runtimeconfig.json
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\bin\Debug\net7.0\patient-mgmt-system.dll
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\bin\Debug\net7.0\patient-mgmt-system.pdb
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.AssemblyInfoInputs.cache
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.AssemblyInfo.cs
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.csproj.CoreCompileInputs.cache
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.sourcelink.json
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.dll
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\refint\patient-mgmt-system.dll
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.pdb
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\patient-mgmt-system.genruntimeconfig.cache
+C:\Users\wel\RepoForCureMD\patient-mgmt-system\patient-mgmt-system\obj\Debug\net7.0\ref\patient-mgmt-system.dll
