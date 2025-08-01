@@ -3,7 +3,20 @@ using System.Collections.Generic;
 using PatientVisitManager.Models;
 using PatientVisitManager.Services;
 using PatientVisitManager.Utils;
+/*
+ * IMPORTANT NOTE: -
+ ADMIN username: admin
+ ADMIN password: 1234
 
+Reception username: reception
+Reception password: 1234
+ 
+
+Important Note: -
+
+When the code is run again the csv file gets deleted.
+I will fix it in the later version of my project soon.
+ */
 namespace PatientVisitManager
 {
     class Program
