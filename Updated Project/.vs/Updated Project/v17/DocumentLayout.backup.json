@@ -1,0 +1,133 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|c:\\users\\wel\\repoforcuremd\\updated project\\updated project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|solutionrelative:updated project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|c:\\users\\wel\\repoforcuremd\\updated project\\updated project\\utils\\undoredomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|solutionrelative:updated project\\utils\\undoredomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|c:\\users\\wel\\repoforcuremd\\updated project\\updated project\\utils\\rolemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|solutionrelative:updated project\\utils\\rolemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|c:\\users\\wel\\repoforcuremd\\updated project\\updated project\\services\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|solutionrelative:updated project\\services\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|c:\\users\\wel\\repoforcuremd\\updated project\\updated project\\services\\feecalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|solutionrelative:updated project\\services\\feecalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|c:\\users\\wel\\repoforcuremd\\updated project\\updated project\\services\\visitmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|solutionrelative:updated project\\services\\visitmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|c:\\users\\wel\\repoforcuremd\\updated project\\updated project\\models\\visit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B92B0744-CD6C-463B-AEF5-631FA54A71C0}|Updated Project\\Updated Project.csproj|solutionrelative:updated project\\models\\visit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RoleManager.cs",
+              "DocumentMoniker": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Utils\\RoleManager.cs",
+              "RelativeDocumentMoniker": "Updated Project\\Utils\\RoleManager.cs",
+              "ToolTip": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Utils\\RoleManager.cs",
+              "RelativeToolTip": "Updated Project\\Utils\\RoleManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T01:26:35.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UndoRedoManager.cs",
+              "DocumentMoniker": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Utils\\UndoRedoManager.cs",
+              "RelativeDocumentMoniker": "Updated Project\\Utils\\UndoRedoManager.cs",
+              "ToolTip": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Utils\\UndoRedoManager.cs",
+              "RelativeToolTip": "Updated Project\\Utils\\UndoRedoManager.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T01:25:26.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Services\\Logger.cs",
+              "RelativeDocumentMoniker": "Updated Project\\Services\\Logger.cs",
+              "ToolTip": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Services\\Logger.cs",
+              "RelativeToolTip": "Updated Project\\Services\\Logger.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T01:19:31.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FeeCalculator.cs",
+              "DocumentMoniker": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Services\\FeeCalculator.cs",
+              "RelativeDocumentMoniker": "Updated Project\\Services\\FeeCalculator.cs",
+              "ToolTip": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Services\\FeeCalculator.cs",
+              "RelativeToolTip": "Updated Project\\Services\\FeeCalculator.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAiwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T01:19:06.237Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VisitManager.cs",
+              "DocumentMoniker": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Services\\VisitManager.cs",
+              "RelativeDocumentMoniker": "Updated Project\\Services\\VisitManager.cs",
+              "ToolTip": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Services\\VisitManager.cs",
+              "RelativeToolTip": "Updated Project\\Services\\VisitManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T01:18:09.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Visit.cs",
+              "DocumentMoniker": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Models\\Visit.cs",
+              "RelativeDocumentMoniker": "Updated Project\\Models\\Visit.cs",
+              "ToolTip": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Models\\Visit.cs",
+              "RelativeToolTip": "Updated Project\\Models\\Visit.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA1wCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T01:16:26.76Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Program.cs",
+              "RelativeDocumentMoniker": "Updated Project\\Program.cs",
+              "ToolTip": "C:\\Users\\wel\\RepoForCureMD\\Updated Project\\Updated Project\\Program.cs",
+              "RelativeToolTip": "Updated Project\\Program.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAgwAwAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-01T01:15:51.119Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

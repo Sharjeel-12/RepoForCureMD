@@ -1,0 +1,35 @@
+F:\ML job folder\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.exe
+F:\ML job folder\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.deps.json
+F:\ML job folder\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.runtimeconfig.json
+F:\ML job folder\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.dll
+F:\ML job folder\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.pdb
+F:\ML job folder\Updated Project\Updated Project\bin\Debug\net7.0\Newtonsoft.Json.dll
+F:\ML job folder\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.csproj.AssemblyReference.cache
+F:\ML job folder\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.GeneratedMSBuildEditorConfig.editorconfig
+F:\ML job folder\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.AssemblyInfoInputs.cache
+F:\ML job folder\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.AssemblyInfo.cs
+F:\ML job folder\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.csproj.CoreCompileInputs.cache
+F:\ML job folder\Updated Project\Updated Project\obj\Debug\net7.0\Updated .F77EDA8A.Up2Date
+F:\ML job folder\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.dll
+F:\ML job folder\Updated Project\Updated Project\obj\Debug\net7.0\refint\Updated Project.dll
+F:\ML job folder\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.pdb
+F:\ML job folder\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.genruntimeconfig.cache
+F:\ML job folder\Updated Project\Updated Project\obj\Debug\net7.0\ref\Updated Project.dll
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.exe
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.deps.json
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.runtimeconfig.json
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.dll
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.pdb
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.csproj.AssemblyReference.cache
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.AssemblyInfoInputs.cache
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.AssemblyInfo.cs
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.csproj.CoreCompileInputs.cache
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.sourcelink.json
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated .F77EDA8A.Up2Date
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.dll
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\refint\Updated Project.dll
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.pdb
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.genruntimeconfig.cache
+C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\ref\Updated Project.dll
