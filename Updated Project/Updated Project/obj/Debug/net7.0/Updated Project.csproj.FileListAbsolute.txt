@@ -33,3 +33,20 @@ C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\refi
 C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.pdb
 C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.genruntimeconfig.cache
 C:\Users\wel\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\ref\Updated Project.dll
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.dll
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\refint\Updated Project.dll
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.pdb
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.exe
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.deps.json
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.runtimeconfig.json
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.dll
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Updated Project.pdb
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.csproj.AssemblyReference.cache
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.AssemblyInfoInputs.cache
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.AssemblyInfo.cs
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.csproj.CoreCompileInputs.cache
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.csproj.CopyComplete
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\Updated Project.genruntimeconfig.cache
+C:\Users\6609\RepoForCureMD\Updated Project\Updated Project\obj\Debug\net7.0\ref\Updated Project.dll

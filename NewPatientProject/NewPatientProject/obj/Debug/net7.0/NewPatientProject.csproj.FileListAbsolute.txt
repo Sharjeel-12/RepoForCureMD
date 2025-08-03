@@ -1,0 +1,5 @@
+C:\Users\wel\RepoForCureMD\NewPatientProject\NewPatientProject\obj\Debug\net7.0\NewPatientProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wel\RepoForCureMD\NewPatientProject\NewPatientProject\obj\Debug\net7.0\NewPatientProject.AssemblyInfoInputs.cache
+C:\Users\wel\RepoForCureMD\NewPatientProject\NewPatientProject\obj\Debug\net7.0\NewPatientProject.AssemblyInfo.cs
+C:\Users\wel\RepoForCureMD\NewPatientProject\NewPatientProject\obj\Debug\net7.0\NewPatientProject.csproj.CoreCompileInputs.cache
+C:\Users\wel\RepoForCureMD\NewPatientProject\NewPatientProject\obj\Debug\net7.0\NewPatientProject.sourcelink.json
