@@ -1,0 +1,98 @@
+create table Authors(
+AuthorID int primary key,
+AuthorName varchar(100),
+dateOfBirth date
+)
+
+
+create table Publishers(
+publisherID int primary key,
+PublisherName VARCHAR(100) NOT NULL,
+Address VARCHAR(200)
+
+)
+
+
+create table Books(
+BookID INT PRIMARY KEY,
+Title VARCHAR(200) NOT NULL,
+Authorid INT,
+PublisherID INT,
+PublicationDate DATE,
+Price DECIMAL(10,2) DEFAULT 0,
+Genre VARCHAR(50),
+ISBN CHAR(13),
+Foreign key(AuthorID) references Authors(AuthorID)
+
+);
+ 
+
+create table borrowers(
+BorrowerID INT PRIMARY KEY,
+BorrowerName VARCHAR(100),
+Email VARCHAR(100) UNIQUE,
+Phone CHAR(10)
+);
+
+create table Loans(
+LoanID INT PRIMARY KEY,
+BookID INT,
+BorrowerID INT,
+LoanDate DATE DEFAULT GETDATE(),
+ReturnDate DATE,
+Foreign Key(BookID) references Books(BookID),
+Foreign Key(BorrowerID) references Borrowers(BorrowerID)
+
+);
+
+--altering the borrowers table
+
+alter table borrowers
+modify borrowername varchar(100) not null
+
+-- altering the books table
+alter table Books
+modify ISBN int unique
+
+-- adding constraint into the books table
+alter table books
+add constraint chk_positivePrice check (price>0)
+
+--5
+Insert into authors(authorid, authorname, dateofbirth)
+values (10,'Harry','2002-05-12'),(15,'Happy','2002-05-12'),(20,'Hayer','2008-05-12');
+
+--6
+insert into borrowers(borrowerid, borrowername, email, phone)
+values (1,'Jack taylor','jacktaylor@example.com',112233),(12,'GrayScaler','gray098@example.com',1111122);
+
+
+--7
+
+INSERT INTO Books (BookID, Title, AuthorID, PublisherID, PublicationDate, Price, Genre, ISBN)
+VALUES
+(101, 'Harry Potter and the Sorcerer''s Stone', 1, 1, '1997-06-26', 19.99, 'Fantasy', '9780439554930'),
+(102, '1984', 2, 2, '1949-06-08', 14.99, 'Dystopian', '9780451524935'),
+(103, 'Murder on the Orient Express', 3, 2, '1934-01-01', 12.50, 'Mystery', '9780062693662'),
+(104, 'The Hobbit', 4, 3, '1937-09-21', 18.00, 'Fantasy', '9780345339683'),
+(105, 'Adventures of Huckleberry Finn', 5, 3, '1884-12-10', 10.00, 'Adventure', '9780486280615');
+
+--8
+
+INSERT INTO Borrowers (BorrowerID, BorrowerName, Email, Phone)
+VALUES
+(1, 'Alice Johnson', 'alice.johnson@example.com', '1234567890'),
+(2, 'Bob Smith', 'bob.smith@example.com', '0987654321');
+
+--9
+INSERT INTO Loans (LoanID, BookID, BorrowerID, LoanDate, ReturnDate)
+VALUES
+(1, 101, 1, '2025-08-01', '2025-08-05'),
+(2, 102, 2, '2025-08-02', NULL),
+(3, 103, 1, '2025-08-03', '2025-08-06');
+
+--10
+select * from Books where price  > 20
+
+--11
+select 
