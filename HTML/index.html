@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Demo - Users API</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<body>
+    <div class="container">
+        <header>
+            <h1>AJAX Demo - JSONPlaceholder Users</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Users Demo</a></li>
+                    <li><a href="weather.html">Weather Forecast</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="controls">
+            <button id="fetchUsers">Fetch Users (XHR)</button>
+            <button id="fetchUsersWithFetch">Fetch Users (Fetch API)</button>
+            <button id="fetchUsersWithJQuery">Fetch Users (jQuery)</button>
+            <button id="clearUsers">Clear</button>
+            <div class="loading" id="loading">Loading...</div>
+        </div>
+        
+        <div class="users-container" id="usersContainer">
+            <!-- Users will be displayed here -->
+        </div>
+    </div>
+
+    <!-- Update User Modal -->
+    <div id="updateModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Update User</h2>
+            <form id="updateUserForm">
+                <input type="hidden" id="userId">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="website">Website:</label>
+                    <input type="text" id="website">
+                </div>
+                <button type="submit" id="saveUserBtn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="../JS/script.js"></script>
+</body>
+</html>

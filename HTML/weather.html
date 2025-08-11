@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast - AJAX Demo</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Weather Forecast</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Users Demo</a></li>
+                    <li><a href="weather.html" class="active">Weather Forecast</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="controls">
+            <button id="refreshWeather">Refresh Data</button>
+            <div class="loading" id="loading">Loading...</div>
+        </div>
+        
+        <div class="weather-container" id="weatherContainer">
+            <!-- Weather data will be displayed here -->
+        </div>
+    </div>
+
+    <script src="../JS/weather.js"></script>
+</body>
+</html>
