@@ -8,23 +8,25 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\wel\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\6609\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ML job folder\\SOLID Design Implementation\\SOLID Design Implementation\\SOLID Design Implementation.csproj",
+      "projectUniqueName": "C:\\Users\\6609\\RepoForCureMD\\SOLID Design Implementation\\SOLID Design Implementation\\SOLID Design Implementation.csproj",
       "projectName": "SOLID Design Implementation",
-      "projectPath": "F:\\ML job folder\\SOLID Design Implementation\\SOLID Design Implementation\\SOLID Design Implementation.csproj",
-      "packagesPath": "C:\\Users\\wel\\.nuget\\packages\\",
-      "outputPath": "F:\\ML job folder\\SOLID Design Implementation\\SOLID Design Implementation\\obj\\",
+      "projectPath": "C:\\Users\\6609\\RepoForCureMD\\SOLID Design Implementation\\SOLID Design Implementation\\SOLID Design Implementation.csproj",
+      "packagesPath": "C:\\Users\\6609\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\6609\\RepoForCureMD\\SOLID Design Implementation\\SOLID Design Implementation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\wel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\6609\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -33,6 +35,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -45,13 +48,7 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net7.0": {
@@ -72,7 +69,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

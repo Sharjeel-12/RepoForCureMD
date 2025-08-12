@@ -1,18 +1,21 @@
-const {XMLHttpRequest}=require('xmlhttprequest');
-const xml = new XMLHttpRequest();
-var result=null;
-url="https://jsonplaceholder.typicode.com/posts/2";
-xml.open('GET',url,true);
 
-xml.onreadystatechange=function(){
+XMLButton=document.getElementById("btn_2");
+XMLButton.addEventListener('click',FetchObjects);
+
+function FetchObjects(){
+xml=new XMLHttpRequest();
+xml.onreadystatechange= function(){
+    user_data_container=document.createElement("div");
     if(this.readyState==4 && this.status==200){
-        result=this.responseText;
-        console.log(result);
-    }
-    else{
-        console.log(`Nothing found! Ready state: ${this.readyState}, status: ${this.readyState}`)
+        console.log("loading");
+        items=JSON.parse(this.responseText);
+        for(i=0; i<10; i++){
+            
+            console.log(items[i].title);
+            user_data_container.innerHTML=`<p></p>`;
+        }
     }
 }
-
+xml.open('GET',"https://jsonplaceholder.typicode.com/posts",true); // async programming true
 xml.send();
-
+}
