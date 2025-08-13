@@ -1,4 +1,5 @@
-use MuhammadSharjeelFarzadDB
+--use MuhammadSharjeelFarzadDB;
+use sharjeel_6609;
 -- inserting values into the table named visit types
 Insert into visitTypes
 values (1,'Follow-Up'),(2,'Emergency'),(3,'Consultation');
