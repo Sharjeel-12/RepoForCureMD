@@ -45,8 +45,31 @@ namespace Patient_Visit_Manager_App.Data
             }
             return result;
         }
+        public async Task<IEnumerable<Doctor>> ExecuteDoctorReadCommand(SqlCommand command)
+        {
+            List<Doctor> result = new List<Doctor>();
+            using (SqlConnection connection = await createConnectionAsync())
+            {
+                command.Connection = connection;
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        Doctor doctor = new Doctor();
+                        doctor.Name = $"{reader["doctorName"]}";
+                        doctor.Specialization = $"{reader["Specialization"]}";
+                        doctor.VisitID = Convert.ToInt32(reader["VisitID"]);
+                        doctor.Email = $"{reader["doctorEmail"]}";
+                        doctor.Id = Convert.ToInt32(reader["doctorID"]);
+                        doctor.Phone = $"{reader["doctorPhone"]}";
+                        result.Add(doctor);
+                    }
+                }
+            }
+            return result;
+        }
 
-        public async Task ExecutePatientWriteCommand(SqlCommand command)
+        public async Task ExecuteWriteCommand(SqlCommand command)
         {
             using(SqlConnection connection= await createConnectionAsync())
             {

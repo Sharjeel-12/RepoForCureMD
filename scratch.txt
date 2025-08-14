@@ -1,0 +1,605 @@
+/* ==== FRONTEND CORE (Auth + Robust API + Page wiring) ==== */
+
+/**========================
+ * CONFIG
+ *========================*/
+const API_BASE = "http://localhost:5136/api";
+const USER_ROLE_KEY = "userRole"; // LocalStorage key to store user's role
+
+// Controllers to try for each entity
+const CONTROLLERS = {
+    patients: ["Patients"],
+    doctors: ["Doctors"],
+    visits: ["Visits"],
+    fees: ["FeeSchedule"],
+    logs: ["Logger"],
+    auth: ["Auth"]
+};
+
+/**========================
+ * SMALL UTILS
+ *========================*/
+function $(s) { return document.querySelector(s); }
+function escapeHtml(s) {
+    return String(s ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+function fromIsoDate(value) { return value ? String(value).split("T")[0] : ""; }
+function toIsoDate(value) { return value || ""; }
+
+function showToast(msg, type = "ok") {
+    const el = document.createElement("div");
+    el.className = `toast ${type}`;
+    el.textContent = msg;
+    document.body.appendChild(el);
+    setTimeout(() => el.classList.add("show"));
+    setTimeout(() => {
+        el.classList.remove("show");
+        setTimeout(() => el.remove(), 250);
+    }, 2600);
+}
+function setBusy(on) {
+    const o = $("#globalBusy");
+    if (o) o.style.display = on ? "flex" : "none";
+}
+
+/**========================
+ * AUTH
+ *========================*/
+
+// Replaced token functions with role-based functions
+function getUserRole() { return localStorage.getItem(USER_ROLE_KEY) || ""; }
+function setUserRole(role) { localStorage.setItem(USER_ROLE_KEY, role || ""); }
+function clearUserRole() { localStorage.removeItem(USER_ROLE_KEY); }
+function isAuthenticated() { return !!getUserRole(); }
+
+// Simplified login to handle the C# controller's response without a token
+async function login(email, password) {
+    const url = `${API_BASE}/Auth/login`;
+    try {
+        const res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: email, password: password })
+        });
+        if (res.ok) {
+            const data = await res.json();
+            // Log the API response to help with debugging
+            console.log("API Response:", data);
+
+            // Check for a successful login with more robust property access
+            const loginOk = data.ok ?? data.Ok ?? data.success ?? data.Success;
+            const userRole = data.role ?? data.Role;
+
+            if (loginOk && userRole) {
+                setUserRole(userRole); // Store the role instead of a token
+                return true;
+            } else {
+                // Modified the error message for better clarity when login fails
+                throw new Error(data.err || data.error || data.message || "Invalid username or password.");
+            }
+        }
+        throw new Error(`HTTP ${res.status} ${res.statusText}`);
+    } catch (e) {
+        throw e || new Error("Login failed");
+    }
+}
+
+function logout() {
+    clearUserRole();
+    window.location.href = "index.html";
+}
+
+/** Enforce auth on protected pages */
+function authGuard() {
+    if (!isAuthenticated()) {
+        window.location.href = "index.html";
+    }
+}
+
+/**========================
+ * FETCH WITHOUT AUTH HEADERS
+ *========================*/
+function candidates(entity, subpath = "", id = null) {
+    const names = CONTROLLERS[entity] || [entity];
+    const out = [];
+    for (const n of names) {
+        let url = `${API_BASE}/${n}`;
+        if (subpath) url += `/${subpath.replace(/^\/+/, "")}`;
+        if (id != null) url += `/${encodeURIComponent(id)}`;
+        out.push(url);
+    }
+    return out;
+}
+
+async function tryFetch(urls, options) {
+    let lastErr = null;
+    for (const u of urls) {
+        try {
+            const res = await fetch(u, options);
+            if (res.ok) {
+                const ct = res.headers.get("content-type") || "";
+                if (ct.includes("application/json")) return await res.json();
+                return true;
+            }
+            lastErr = new Error(`HTTP ${res.status} ${res.statusText}`);
+        } catch (e) { lastErr = e; }
+    }
+    throw lastErr || new Error("Request failed");
+}
+
+function getJsonOptions(method, payload) {
+    return {
+        method: method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    };
+}
+
+
+/**========================
+ * ROBUST CRUD HELPERS (now without auth)
+ *========================*/
+const RobustApi = {
+    async list(entity) {
+        return tryFetch(candidates(entity), { method: "GET" });
+    },
+    async create(entity, payload) {
+        return tryFetch(candidates(entity), getJsonOptions("POST", payload));
+    },
+    async update(entity, id, payload) {
+        const url = candidates(entity, "", id);
+        return tryFetch(url, getJsonOptions("PUT", payload));
+    },
+    async remove(entity, id) {
+        const url = candidates(entity, "", id);
+        return tryFetch(url, { method: "DELETE" });
+    }
+};
+
+/**========================
+ * ENTITY APIS (thin wrappers)
+ *========================*/
+const PatientsApi = {
+    list: () => RobustApi.list("patients"),
+    create: (o) => RobustApi.create("patients", o),
+    update: (id, o) => RobustApi.update("patients", id, o),
+    remove: (id) => RobustApi.remove("patients", id)
+};
+const DoctorsApi = {
+    list: () => RobustApi.list("doctors"),
+    create: (o) => RobustApi.create("doctors", o),
+    update: (id, o) => RobustApi.update("doctors", id, o),
+    remove: (id) => RobustApi.remove("doctors", id)
+};
+const VisitsApi = {
+    list: () => RobustApi.list("visits"),
+    create: (o) => RobustApi.create("visits", o),
+    update: (id, o) => RobustApi.update("visits", id, o),
+    remove: (id) => RobustApi.remove("visits", id)
+};
+const FeesApi = {
+    list: () => RobustApi.list("fees"),
+    create: (o) => RobustApi.create("fees", o),
+    update: (id, o) => RobustApi.update("fees", id, o),
+    remove: (id) => RobustApi.remove("fees", id)
+};
+const LogsApi = {
+    // The Logs controller has a different path for the GET method.
+    list: () => tryFetch(candidates("logs", "activities"), { method: "GET" })
+};
+
+/**========================
+ * PAGE WIRING
+ *========================*/
+function wirePatientsPage() {
+    authGuard();
+
+    const form = $("#patientForm");
+    const tbl = $("#patientsTable");
+    const idF = $("#pId"), nameF = $("#pName"), descF = $("#pDescription"), dateF = $("#pVisitDate");
+    const btnCancel = $("#pCancel"), btnSubmit = $("#pSubmit");
+
+    async function refresh() {
+        setBusy(true);
+        try {
+            const data = await PatientsApi.list();
+            tbl.innerHTML = "";
+            (data || []).forEach(p => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+          <td>${escapeHtml(p.name)}</td>
+          <td>${escapeHtml(p.description)}</td>
+          <td>${escapeHtml(fromIsoDate(p.visitDate))}</td>
+          <td class="actions">
+            <button class="secondary" data-edit="${p.patientID}">Edit</button>
+            <button class="danger" data-del="${p.patientID}">Delete</button>
+          </td>`;
+                tbl.appendChild(tr);
+            });
+        } catch (e) { showToast(`Load failed: ${e.message}`, "err"); }
+        finally { setBusy(false); }
+    }
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const id = idF.value.trim();
+        // Use camelCase for JSON properties for better compatibility
+        const payload = {
+            name: nameF.value.trim(),
+            description: descF.value.trim(),
+            visitDate: toIsoDate(dateF.value)
+        };
+        setBusy(true);
+        try {
+            if (id) {
+                // Update: Include the ID as a number in the payload
+                const updatePayload = { patientID: Number(id), ...payload };
+                await PatientsApi.update(id, updatePayload);
+                showToast("Patient updated");
+            } else {
+                // Create: send payload as is
+                await PatientsApi.create(payload);
+                showToast("Patient added");
+            }
+            idF.value = ""; form.reset();
+            btnSubmit.textContent = "Add Patient";
+            btnCancel.style.display = "none";
+            await refresh();
+        } catch (e2) { showToast(`Save failed: ${e2.message}`, "err"); }
+        finally { setBusy(false); }
+    });
+
+    tbl.addEventListener("click", async (e) => {
+        const editId = e.target.getAttribute("data-edit");
+        const delId = e.target.getAttribute("data-del");
+        if (editId) {
+            const row = e.target.closest("tr");
+            const tds = row.querySelectorAll("td");
+            idF.value = editId;
+            nameF.value = tds[0].textContent;
+            descF.value = tds[1].textContent;
+            dateF.value = fromIsoDate(tds[2].textContent);
+            btnSubmit.textContent = "Update Patient";
+            btnCancel.style.display = "inline-block";
+        }
+        if (delId && confirm("Delete this patient?")) {
+            setBusy(true);
+            try { await PatientsApi.remove(delId); showToast("Patient deleted"); await refresh(); }
+            catch (e3) { showToast(`Delete failed: ${e3.message}`, "err"); }
+            finally { setBusy(false); }
+        }
+    });
+
+    btnCancel.addEventListener("click", () => {
+        form.reset(); idF.value = "";
+        btnSubmit.textContent = "Add Patient";
+        btnCancel.style.display = "none";
+    });
+
+    refresh();
+}
+
+function wireDoctorsPage() {
+    authGuard();
+    const form = $("#doctorForm"), tbl = $("#doctorsTable");
+    const idF = $("#dId"), nameF = $("#dName"), specF = $("#dSpecialty");
+    const btnCancel = $("#dCancel"), btnSubmit = $("#dSubmit");
+
+    async function refresh() {
+        setBusy(true);
+        try {
+            const data = await DoctorsApi.list();
+            tbl.innerHTML = "";
+            (data || []).forEach(d => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+          <td>${escapeHtml(d.name)}</td>
+          <td>${escapeHtml(d.specialty ?? d.speciality ?? "")}</td>
+          <td class="actions">
+            <button class="secondary" data-edit="${d.id}">Edit</button>
+            <button class="danger" data-del="${d.id}">Delete</button>
+          </td>`;
+                tbl.appendChild(tr);
+            });
+        } catch (e) { showToast(`Load failed: ${e.message}`, "err"); }
+        finally { setBusy(false); }
+    }
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const id = idF.value.trim();
+        // Use camelCase for JSON properties for better compatibility
+        const payload = {
+            name: nameF.value.trim(),
+            specialty: specF.value.trim()
+        };
+        setBusy(true);
+        try {
+            if (id) {
+                // Update: Include the ID as a number in the payload
+                const updatePayload = { id: Number(id), ...payload };
+                await DoctorsApi.update(id, updatePayload);
+                showToast("Doctor updated");
+            } else { await DoctorsApi.create(payload); showToast("Doctor added"); }
+            idF.value = "";
+            form.reset();
+            btnSubmit.textContent = "Add Doctor";
+            btnCancel.style.display = "none";
+            await refresh();
+        } catch (e2) { showToast(`Save failed: ${e2.message}`, "err"); }
+        finally { setBusy(false); }
+    });
+
+    tbl.addEventListener("click", async (e) => {
+        const editId = e.target.getAttribute("data-edit");
+        const delId = e.target.getAttribute("data-del");
+        if (editId) {
+            const row = e.target.closest("tr");
+            const tds = row.querySelectorAll("td");
+            idF.value = editId;
+            nameF.value = tds[0].textContent;
+            specF.value = tds[1].textContent;
+            btnSubmit.textContent = "Update Doctor";
+            btnCancel.style.display = "inline-block";
+        }
+        if (delId && confirm("Delete this doctor?")) {
+            setBusy(true);
+            try { await DoctorsApi.remove(delId); showToast("Doctor deleted"); await refresh(); }
+            catch (e3) { showToast(`Delete failed: ${e3.message}`, "err"); }
+            finally { setBusy(false); }
+        }
+    });
+
+    btnCancel.addEventListener("click", () => {
+        form.reset();
+        idF.value = "";
+        btnSubmit.textContent = "Add Doctor";
+        btnCancel.style.display = "none";
+    });
+
+    refresh();
+}
+
+function wireVisitsPage() {
+    authGuard();
+    const form = $("#visitForm"), tbl = $("#visitsTable");
+    const idF = $("#vId"), pF = $("#vPatientId"), dF = $("#vDoctorId"), dateF = $("#vDate"), notesF = $("#vNotes");
+    const btnCancel = $("#vCancel"), btnSubmit = $("#vSubmit");
+
+    async function refresh() {
+        setBusy(true);
+        try {
+            const data = await VisitsApi.list();
+            tbl.innerHTML = "";
+            (data || []).forEach(v => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+          <td>${escapeHtml(v.patientId)}</td>
+          <td>${escapeHtml(v.doctorId)}</td>
+          <td>${escapeHtml(fromIsoDate(v.visitDate ?? v.date))}</td>
+          <td>${escapeHtml(v.notes ?? "")}</td>
+          <td class="actions">
+            <button class="secondary" data-edit="${v.id}">Edit</button>
+            <button class="danger" data-del="${v.id}">Delete</button>
+          </td>`;
+                tbl.appendChild(tr);
+            });
+        } catch (e) { showToast(`Load failed: ${e.message}`, "err"); }
+        finally { setBusy(false); }
+    }
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const id = idF.value.trim();
+        // Use camelCase for JSON properties for better compatibility
+        const payload = {
+            patientId: Number(pF.value),
+            doctorId: Number(dF.value),
+            visitDate: toIsoDate(dateF.value),
+            notes: notesF.value.trim()
+        };
+        setBusy(true);
+        try {
+            if (id) {
+                // Update: Include the ID as a number in the payload
+                const updatePayload = { id: Number(id), ...payload };
+                await VisitsApi.update(id, updatePayload);
+                showToast("Visit updated");
+            } else { await VisitsApi.create(payload); showToast("Visit added"); }
+            idF.value = "";
+            form.reset();
+            btnSubmit.textContent = "Add Visit";
+            btnCancel.style.display = "none";
+            await refresh();
+        } catch (e2) { showToast(`Save failed: ${e2.message}`, "err"); }
+        finally { setBusy(false); }
+    });
+
+    tbl.addEventListener("click", async (e) => {
+        const editId = e.target.getAttribute("data-edit");
+        const delId = e.target.getAttribute("data-del");
+        if (editId) {
+            const row = e.target.closest("tr");
+            const tds = row.querySelectorAll("td");
+            idF.value = editId;
+            pF.value = tds[0].textContent;
+            dF.value = tds[1].textContent;
+            dateF.value = fromIsoDate(tds[2].textContent);
+            notesF.value = tds[3].textContent;
+            btnSubmit.textContent = "Update Visit";
+            btnCancel.style.display = "inline-block";
+        }
+        if (delId && confirm("Delete this visit?")) {
+            setBusy(true);
+            try { await VisitsApi.remove(delId); showToast("Visit deleted"); await refresh(); }
+            catch (e3) { showToast(`Delete failed: ${e3.message}`, "err"); }
+            finally { setBusy(false); }
+        }
+    });
+
+    btnCancel.addEventListener("click", () => {
+        form.reset();
+        idF.value = "";
+        btnSubmit.textContent = "Add Visit";
+        btnCancel.style.display = "none";
+    });
+
+    refresh();
+}
+
+function wireFeesPage() {
+    authGuard();
+    const form = $("#feeForm"), tbl = $("#feesTable");
+    const idF = $("#fId"), nameF = $("#fName"), amtF = $("#fAmount");
+    const btnCancel = $("#fCancel"), btnSubmit = $("#fSubmit");
+
+    async function refresh() {
+        setBusy(true);
+        try {
+            const data = await FeesApi.list();
+            tbl.innerHTML = "";
+            (data || []).forEach(f => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+          <td>${escapeHtml(f.name)}</td>
+          <td>${escapeHtml(f.amount)}</td>
+          <td class="actions">
+            <button class="secondary" data-edit="${f.id}">Edit</button>
+            <button class="danger" data-del="${f.id}">Delete</button>
+          </td>`;
+                tbl.appendChild(tr);
+            });
+        } catch (e) { showToast(`Load failed: ${e.message}`, "err"); }
+        finally { setBusy(false); }
+    }
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const id = idF.value.trim();
+        // Use camelCase for JSON properties for better compatibility
+        const payload = {
+            name: nameF.value.trim(),
+            amount: Number(amtF.value)
+        };
+        setBusy(true);
+        try {
+            if (id) {
+                // Update: Include the ID as a number in the payload
+                const updatePayload = { id: Number(id), ...payload };
+                await FeesApi.update(id, updatePayload);
+                showToast("Fee updated");
+            } else { await FeesApi.create(payload); showToast("Fee added"); }
+            idF.value = "";
+            form.reset();
+            btnSubmit.textContent = "Add Fee";
+            btnCancel.style.display = "none";
+            await refresh();
+        } catch (e2) { showToast(`Save failed: ${e2.message}`, "err"); }
+        finally { setBusy(false); }
+    });
+
+    tbl.addEventListener("click", async (e) => {
+        const editId = e.target.getAttribute("data-edit");
+        const delId = e.target.getAttribute("data-del");
+        if (editId) {
+            const row = e.target.closest("tr");
+            const tds = row.querySelectorAll("td");
+            idF.value = editId;
+            nameF.value = tds[0].textContent;
+            amtF.value = tds[1].textContent;
+            btnSubmit.textContent = "Update Fee";
+            btnCancel.style.display = "inline-block";
+        }
+        if (delId && confirm("Delete this fee?")) {
+            setBusy(true);
+            try { await FeesApi.remove(delId); showToast("Fee deleted"); await refresh(); }
+            catch (e3) { showToast(`Delete failed: ${e3.message}`, "err"); }
+            finally { setBusy(false); }
+        }
+    });
+
+    btnCancel.addEventListener("click", () => {
+        form.reset();
+        idF.value = "";
+        btnSubmit.textContent = "Add Fee";
+        btnCancel.style.display = "none";
+    });
+
+    refresh();
+}
+
+function wireLogsPage() {
+    authGuard();
+    const tbl = $("#logsTable");
+    (async () => {
+        setBusy(true);
+        try {
+            const data = await LogsApi.list();
+            tbl.innerHTML = "";
+            (data || []).forEach(log => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+          <td>${escapeHtml(log.id)}</td>
+          <td>${escapeHtml(log.user ?? log.username ?? "")}</td>
+          <td>${escapeHtml(log.action ?? log.event ?? "")}</td>
+          <td>${escapeHtml(fromIsoDate(log.date ?? log.timestamp))}</td>`;
+                tbl.appendChild(tr);
+            });
+        } catch (e) { showToast(`Load failed: ${e.message}`, "err"); }
+        finally { setBusy(false); }
+    })();
+}
+
+/**========================
+ * BOOTSTRAP
+ *========================*/
+document.addEventListener("DOMContentLoaded", () => {
+    // Global busy overlay
+    if (!$("#globalBusy")) {
+        const overlay = document.createElement("div");
+        overlay.id = "globalBusy";
+        overlay.innerHTML = `<div class="spinner" aria-label="Loading"></div>`;
+        overlay.style.display = "none";
+        document.body.appendChild(overlay);
+    }
+
+    const page = document.body.getAttribute("data-page");
+    try {
+        if (page === "patients") wirePatientsPage();
+        if (page === "doctors") wireDoctorsPage();
+        if (page === "visits") wireVisitsPage();
+        if (page === "fees") wireFeesPage();
+        if (page === "logs") wireLogsPage();
+
+        // Login page has no guard; others call authGuard() at start
+        const logoutBtn = $("#logoutBtn");
+        if (logoutBtn) logoutBtn.addEventListener("click", logout);
+    } catch (e) {
+        console.error(e);
+        showToast(`Init error: ${e.message}`, "err");
+    }
+});
+
+/* Expose login handler for index.html */
+window.__doLogin = async function (e) {
+    e.preventDefault();
+    const u = $("#loginUser").value.trim();
+    const p = $("#loginPass").value;
+    if (!u || !p) { showToast("Enter username & password", "err"); return; }
+    setBusy(true);
+    try {
+        await login(u, p);
+        showToast("Logged in");
+        window.location.href = "patients.html";
+    } catch (err) {
+        // Updated to remove the redundant "Login failed" prefix
+        showToast(`${err.message}`, "err");
+    } finally {
+        setBusy(false);
+    }
+};

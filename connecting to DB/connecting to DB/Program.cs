@@ -7,8 +7,14 @@ public class Program
 {
     static void Main()
     {
-        string connectionString = "Data Source = CMDLHRDB01; Initial Catalog = sharjeel_6609; Integrated Security = True;";
-        using(SqlConnection connection=new SqlConnection(connectionString)) 
+        //string connectionString = @"Data Source=DESKTOP-BGJ5S5C;Initial Catalog=MuhammadSharjeelFarzadDB;Integrated Security=True";
+
+
+        //string connectionString = "Data Source = DESKTOP-BGJ5S5C; Initial Catalog = MuhammadSharjeelFarzadDB; Integrated Security = True;";
+
+        string connectionString = @"Server=DESKTOP-BGJ5S5C\TEW_SQLEXPRESS;Database=MuhammadSharjeelFarzadDB;User Id=Test;Password=cure2000;";
+
+        using (SqlConnection connection=new SqlConnection(connectionString)) 
         {
             string getDataCommand = "SELECT * FROM Patients";
             connection.Open();

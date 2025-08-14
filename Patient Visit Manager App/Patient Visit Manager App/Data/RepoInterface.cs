@@ -12,7 +12,7 @@ namespace Patient_Visit_Manager_App.Data
         Task<IEnumerable<Patient>> ExecutePatientReadCommand(SqlCommand command);
         
         // executes a read only command
-        Task<IEnumerable<Patient>> ExecuteDoctorReadCommand(SqlCommand command);
+        Task<IEnumerable<Doctor>> ExecuteDoctorReadCommand(SqlCommand command);
 
         // can be Create,Update, and Delete sql command
         Task ExecuteWriteCommand(SqlCommand command);
