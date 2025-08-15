@@ -1,5 +1,5 @@
- use MuhammadSharjeelFarzadDB;
-
+ --use MuhammadSharjeelFarzadDB;
+ use sharjeel_6609;
 go
 -- =======Look Up Tables========== --
 
@@ -45,7 +45,7 @@ visitDuration int,
 visitDate date,
 visitTime time,
 visitFee decimal(10,2),
-foreign key(VisittypeID) references visitTypes(typeID),
+foreign key(VisittypeID) references visitTypes(typeID)
 )
 
  go
